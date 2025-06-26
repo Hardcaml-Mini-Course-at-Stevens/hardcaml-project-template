@@ -1,0 +1,9 @@
+(executables
+ (names counter)
+ (libraries
+  hardcaml
+  hardcaml_example
+  hardcaml_example_test
+  hardcaml_waveterm.interactive)
+ (preprocess
+  (pps ppx_jane)))
