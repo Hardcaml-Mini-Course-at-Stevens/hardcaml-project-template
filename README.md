@@ -24,7 +24,7 @@ will need both of them.
 
 ## Testing in `hardcaml_example_tests`
 
-The library in `test` implements a testbench library for our example counter design.
+The library in `test` implements a testbench for our example counter design.
 
 The dune file names the library `hardcaml_example_tests`.  Note that it depends on 
 the `hardcaml_example` library we just defined - we need it to get the implementation 
@@ -49,7 +49,7 @@ It also depends on `hardcaml_example_tests` so it can run the testbench to gener
 waveform.  To show the waveform we link `hardcaml_waveterm.interactive` which allows
 us to view the waveform in the terminal.
 
-It is written using the `Core.Command` command line parsing library and provide the 
+It is written using the `Core.Command` command line parsing library and provides the 
 following commands.
 
 - **simulate**: execute the testbench and show and interactive waveform for debugging.
@@ -58,20 +58,11 @@ following commands.
 
 ## Misc files
 
-- **.gitignore**: Some common files and directories using by dune (and opam) which 
+- **.gitignore**: Some common files and directories used by dune (and opam) which 
   should not be checked into a repository.
 - **.ocamlformat**: Enable automatic formatting of code (requires ocamlformat support 
   in your editor).
 - **dune-project**: Basic dune project definition file.
-
-## Using mli files
-
-Using mli files is generally recommened, though not necessary.  Especially as files 
-get larger and more complicated it can be very useful to control what is exported 
-from Ocaml modules.
-
-That being said, for simpler designs it is reasonable to not want to write them.  
-When not included, all top level values will be exported.
 
 ## Building and running
 
@@ -115,7 +106,7 @@ dune exec bin/counter.exe
 
 ## Simplifying the Project
 
-The executables in this project are only useful if you want to:
+The executable in this project is only useful if you want to:
 
 1. Generate RTL from the library
 2. Run longer simulations that are inconvenient to implement with an expect test.
@@ -127,3 +118,12 @@ Although it a common practice to split library code and test code, for smaller
 projects it can be simpler to keep them together.  In this case we would
 remove the `test` directory and move the tests into `src`.  Dont forget to also
 move the `(inline_tests)` stanza to the dune file in `src`.
+
+### Using mli files
+
+Using mli files is generally recommened, though not necessary.  Especially as files 
+get larger and more complicated it can be very useful to control what is exported 
+from Ocaml modules.
+
+That being said, for simpler designs it is reasonable to not want to write them.  
+When not included, all top level values will be exported.
