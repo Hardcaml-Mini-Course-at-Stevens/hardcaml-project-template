@@ -46,15 +46,15 @@ It depends on `hardcaml_example` so it can create a circuit for the counter desi
 print RTL (Verilog or VHDL).
 
 It also depends on `hardcaml_example_tests` so it can run the testbench to generate a 
-waveform.  To show the waveform we link `hardcaml_waveterm.interactive` which allows
-us to view the waveform in the terminal.
+waveform.  We link `hardcaml_waveterm.interactive` which allows us to view the waveform 
+in the terminal.
 
 It is written using the `Core.Command` command line parsing library and provides the 
 following commands.
 
-- **simulate**: execute the testbench and show and interactive waveform for debugging.
+- **simulate**: execute the testbench and show an interactive waveform for debugging.
 - **verilog**: print the design as Verilog.
-- **vhdl**: print the desing as VHDL.
+- **vhdl**: print the design as VHDL.
 
 ## Misc files
 
@@ -72,7 +72,7 @@ To build the project run:
 dune build
 ```
 
-dune will either complete successfully or print some errors to be fixed.
+dune will either complete successfully or print errors that need to be fixed.
 
 Adding `-w` will enable watch (or polling mode).  dune will run continuously and
 react to changes in the source code.
@@ -90,7 +90,7 @@ dune runtest
 Again, it is possible to use the `-w` argument to enable watch mode.
 
 When running tests, dune will print any expect test diffs that occur as you change 
-your code.  You can accept these changes with
+your code.  You can accept these changes with:
 
 ```
 dune promote
@@ -121,9 +121,22 @@ move the `(inline_tests)` stanza to the dune file in `src`.
 
 ### Using mli files
 
-Using mli files is generally recommened, though not necessary.  Especially as files 
+Using mli files is generally recommended, though not necessary.  Especially as files 
 get larger and more complicated it can be very useful to control what is exported 
 from Ocaml modules.
 
 That being said, for simpler designs it is reasonable to not want to write them.  
 When not included, all top level values will be exported.
+
+### Modifying the template
+
+As given the template should be useful as a starting point.  To modify for you own 
+uses you will need to change two things.
+
+1. Choose a library name.  We used `example` here and called our library and tests
+   `hardcaml_example` and `hardcaml_example_tests`.  Modify the dune files to select 
+   your own name - changes are needed in both the `name` and `library` stanzas.
+2. Decide what you want to call you module.  We called it counter - you should rename
+   the `counter.ml` and `counter.mli` files as appropriate.
+
+You can then continue to add modules as appropriate for your project.
