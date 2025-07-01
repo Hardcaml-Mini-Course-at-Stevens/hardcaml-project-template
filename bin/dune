@@ -4,6 +4,7 @@
   hardcaml
   hardcaml_example
   hardcaml_example_test
+  hardcaml_hobby_boards
   hardcaml_waveterm.interactive)
  (preprocess
   (pps ppx_jane)))

@@ -14,3 +14,6 @@ module O : sig
 end
 
 val create : Interface.Create_fn(I)(O).t
+
+(* Construct top level board design. *)
+val board : unit -> Hardcaml_hobby_boards.Board.t
